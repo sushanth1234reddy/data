@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="shortcut icon" href="tabImage.png" type="image/x-icon">
+    <style>
+      *{
+        box-sizing: border-box;
+        padding: 0px;
+        margin: 0px;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        background-image: url(loginSignUpPic.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      #myLoginForm{
+        width: 500px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* background-color: rgb(200, 223, 215); */
+        border-radius: 40px;
+        backdrop-filter: blur(8px);
+        color: rgb(247, 246, 246);
+
+        
+
+        
+      }
+      input {
+        width: 200px;
+        margin: 10px 0;
+        padding: 3px;
+        box-sizing: border-box;
+      }
+      div{
+        display: flex;
+        font-weight: bold;
+        align-items: baseline;
+        justify-content: space-between;
+        /* background-color:rgb(200, 223, 215); */
+        width: 350px;
+        padding: 0px 10px;
+      }
+      button{
+        background-color: rgb(50, 50, 205);
+        padding: 5px 15px;
+        border-radius: 5px;
+        border: 1px solid blue;
+        font-weight: bold;
+        color: white;
+      }
+      button:hover{
+        background-color: white;
+        color: green;
+        border: 1px solid green;
+        transform: scale(1.1);
+        transition-duration: 0.2s;
+      }
+      .navbar{
+        background-color: rgb(50, 50, 205);
+        color: white;
+        width: 100%;
+        height: 50px;
+        padding: 15px 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+      .innerDiv{
+         background-color: rgb(50, 50, 205);
+        
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      span > a{
+        color: white;
+        text-decoration: none;
+      }
+      .logo{
+        border-radius: 10px;
+      }
+      
+     
+    </style>
+</head>
+<body>
+  
+  <div class="navbar">
+    <span ><img class="logo" src="logoImage.jpg" height="35px" width="40px" alt="Logo"></span>
+    <div class="innerDiv">
+      <span><a href="homePage.html">Home</a></span>
+      <span><a href="login.html">Login</a></span>
+      <span><a href="register.html">SignUp</a></span>
+    </div>
+  </div>
+     <form id="myLoginForm" class="blurrr">
+      <h2>Login</h2>
+      <div>
+        <label for="user">Username:</label>
+        <input type="text" id="username" placeholder="Enter Username" required />
+      </div>
+      <div>
+        <label for="pass">Password:</label>
+        <input type="password" id="password" placeholder="Enter Password" required />
+      </div>
+      <br>
+      <button type="submit">Login</button>
+      &nbsp; &nbsp;<a href="register.html">Go to Register</a>
+    </form>
+
+    <script>
+      
+        let myLoginForm=document.getElementById("myLoginForm");
+
+        myLoginForm.addEventListener("submit", (e)=> {
+          e.preventDefault();
+          let  username = document.getElementById("username").value;
+          let  password = document.getElementById("password").value;
+
+          let  user = localStorage.getItem(username);
+
+          if (user) {
+            const parsedUser = JSON.parse(user);
+            if (parsedUser.password === password) {
+              localStorage.setItem("user", JSON.stringify(parsedUser));
+              window.location.href = "homePage.html";
+            } else {
+              alert("Incorrect password");
+            }
+          } else {
+            alert("User not found");
+          }
+        });
+    </script>
+</body>
+</html>
