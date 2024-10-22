@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Typing Page</title>
+    <link rel="shortcut icon" href="tabImage.png" type="image/x-icon">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="navbar">
+    <span><img class="logo" src="logoImage.jpg" height="35px" width="40px" alt="Logo"></span>
+    <div class="innerDiv">
+      <span><a href="homePage.html">Home</a></span>
+      <span><a href="login.html">Login</a></span>
+      <span><a href="register.html">SignUp</a></span>
+      <span id="LoggedInUser"></span>
+    </div>
+  </div>
+ 
+  <div class="mainPart">
+    <div class="container">
+        <h1 class="text-center">Typing Speed Test</h1>
+        <div class="text-to-type">
+            <p id="text-to-type" class="lead"></p>
+        </div>
+        <textarea id="typed-input"  rows="6" placeholder="Start typing here..." oninput="checkTyping()"></textarea>
+        <div >
+            <div >
+                <p class="tx">Time: <span id="timer">60</span> seconds</p>
+            </div>
+            <div >
+                <p class="tx">Speed: <span id="speed">0</span> WPM</p>
+            </div>
+            <div >
+                <p class="tx">Accuracy: <span id="accuracy">100</span>%</p>
+            </div>
+        </div>
+        <button id="reset-btn" onclick="resetTest()">Reset Test</button>
+
+        
+        <div class="result">
+            <h3>Results:</h3>
+            <p class="tx">Typing Speed: <span id="final-speed">0</span> WPM</p>
+            <p class="tx">Accuracy: <span id="final-accuracy">100</span>%</p>
+            <p class="tx">Total Errors: <span id="total-errors">0</span></p>
+        </div>
+    </div>
+  </div>
+  
+    <script src="main.js" defer></script>
+</body>
+</html>
