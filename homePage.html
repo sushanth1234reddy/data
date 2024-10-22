@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="shortcut icon" href="tabImage.png" type="image/x-icon">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-image: url(img1.jpg);
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+            
+
+            
+            
+            text-align: center;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            
+        }
+        .hidden{
+            display: none;
+        }
+         button{
+        background-color: rgb(50, 50, 205);
+        padding: 5px 15px;
+        border-radius: 5px;
+        border: 1px solid blue;
+        font-weight: bold;
+        color: white;
+      }
+      button:hover{
+        background-color: white;
+        color: green;
+        border: 1px solid green;
+        transform: scale(1.1);
+        transition-duration: 0.2s;
+      }
+      .navbar{
+        background-color: rgb(50, 50, 205);
+        color: white;
+        width: 100%;
+        height: 50px;
+        padding: 15px 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+      .innerDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        
+        width: 350px;
+      }
+      span > a{
+        color: white;
+        text-decoration: none;
+      }
+      div{
+        font-weight: bold;
+      }
+      .logo{
+        border-radius: 10px;
+      }
+      .reDirectToMainPage{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 5px;
+        border: 0.5px solid black;
+        height: 300px;
+        width: 400px;
+        backdrop-filter: blur(8px);
+        
+        padding: 10px;
+        border-radius: 30px;
+        margin-top: 30px;
+        
+      }
+      .reDirectToMainPage:hover{
+        transform: scale(1.02);
+        transition-timing-function: linear;
+        transition-duration: 0.2s;
+        
+      }
+      .RedirectImage{
+        width: 70%;
+        height: 100%;
+        border-radius: 24px;
+      }
+      .RedirectText{
+        width: 30%;
+        height: 100%;
+        color: white;
+        
+        border-radius: 20px;
+        font-size:xx-large;
+        font-weight: bolder;
+        padding: 50px 5px;
+        
+        
+      }
+      .redirect{
+        text-decoration: none;
+        
+      }
+      .part2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer{
+        color: white;
+        /* background-color:  rgb(50, 50, 205); */
+        backdrop-filter: blur(50px);
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        padding: 20px 40px;
+
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      .bottomUp{
+        display: flex;
+        flex-direction: row;
+        
+        
+
+      }
+      .bottomUp div{
+        height: 100%;
+        width: 33.3%;
+        
+        
+      }
+      .bottomDown{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px;
+      }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+    <span><img class="logo" src="logoImage.jpg" height="35px" width="40px" alt="Logo"></span>
+    <div class="innerDiv">
+      <span><a href="homePage.html">Home</a></span>
+      <span><a href="login.html">Login</a></span>
+      <span><a href="register.html">SignUp</a></span>
+      <span id="LoggedInUser"></span>
+    </div>
+  </div>
+
+  <div class="part2">
+    <h5 id="welMsg">Welcome, Hello</h5> <br>
+    <button id="lgoutbtn" class="hidden">Logout</button>
+    <a class="redirect" href="main.html">
+      <div class="reDirectToMainPage">
+      <img class="RedirectImage" src="redirectImage.jpeg" alt="Typo">
+      <p class="RedirectText">Start <br> Your <br> Test <br> Now</p>
+      </div>
+    </a>
+    </div>
+
+    <div class="footer">
+      <div class="bottomUp">
+        <div class="foo">
+          <span>About Us</span><br>
+          <span>Website Details</span><br>
+          <span>Privacy & Terms</span>
+        </div>
+        <div class="foo">
+          <span>Support Us</span><br>
+          <span>Donate</span><br>
+          <span>Rate Us</span>
+        </div>
+        <div class="foo">
+          <span>Contact Us</span><br>
+          <span><ion-icon name="logo-whatsapp"></ion-icon>Whatsapp</span><br>
+          <span><ion-icon name="logo-facebook"></ion-icon>Facebook</span><br>
+          <span><ion-icon name="logo-instagram"></ion-icon>Instagram</span><br>
+          <span><ion-icon name="logo-linkedin"></ion-icon>LinkedIn</span>
+        </div>
+      </div>
+      <div class="bottomDown">
+        <span>@2024 Typing Test Website </span>
+        <span>Designed By: Sushanth Reddy</span>
+      </div>
+    </div>
+    
+    
+    <script>
+        const user = localStorage.getItem("user");
+        let welMsg=document.getElementById("welMsg");
+        let logOutbtn= document.getElementById("lgoutbtn");
+        let LoggedInUser=document.getElementById("LoggedInUser");
+        if(user){
+            const parsedUser = JSON.parse(user);
+            welMsg.innerHTML=`Hello ${parsedUser.name}`;
+            LoggedInUser.innerHTML=`&#128512; ${parsedUser.name}`;
+            logOutbtn.classList.remove("hidden");
+            
+        }
+        else{
+            welMsg.innerHTML=`Hello, Please Login Using <a href="login.html">Login</a>`;
+        }
+        logOutbtn.addEventListener("click",()=>{
+            localStorage.removeItem("user");
+            window.location.href="login.html";
+        });
+    </script>
+</body>
+</html>
