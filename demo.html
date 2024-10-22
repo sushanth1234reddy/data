@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Task</title>
+</head>
+<body>
+    <form  id="myform">
+        <label for="user">UserName:</label>
+        <input type="text" id="user">
+        <br><br>
+        <label for="pass">Password:</label>
+        <input type="text" id="pass"><br><br>
+        <input type="submit">
+    </form>
+    <script>
+        let myform=document.getElementById("myform");
+        myform.addEventListener("submit",(e)=>{
+            e.preventDefault();
+            let user=document.getElementById("user");
+            let pass=document.getElementById("pass");
+            localStorage.setItem(user.value,pass.value);
+        })
+    </script>
+</body>
+</html>
